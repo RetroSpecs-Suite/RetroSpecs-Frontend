@@ -1,0 +1,114 @@
+/* styles.css */
+.split-container {
+  display: flex;
+  min-height: 100vh;
+  width: 100%;
+  flex-direction: row;
+}
+
+.left-side {
+  width: 50%;
+  background-color: whitesmoke;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.right-content {
+  width: 50%;
+  min-height: 100vh;
+  background-color: rgb(249, 250, 251);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.right-content img {
+  width: 100%;
+}
+
+.left-side h1 {
+  font-size: 4rem;
+  font-weight: bold;
+  margin: 0.5rem 1rem;
+  background: linear-gradient(135deg, #4f46e5, #2563eb);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.left-side p {
+  color: #6b7280;
+  font-size: 1.125rem;
+  line-height: 1.5;
+  margin-bottom: 2rem;
+}
+
+.google-sign-in {
+  width: 20rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  padding: 1rem;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  background: white;
+  color: #374151;
+  font-size: 1.125rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s, border-color 0.2s;
+  border: 1px solid lightgrey;
+}
+
+.google-sign-in img {
+  width: 2.5rem;
+}
+
+.google-sign-in:hover {
+  background-color: #f9fafb;
+  border-color: #d1d5db;
+}
+
+.google-icon {
+  width: 24px;
+  height: 24px;
+}
+
+/* Responsive design for mobile */
+@media (max-width: 768px) {
+  .split-container {
+    flex-direction: column;
+  }
+
+  .left-side {
+    position: relative;
+    width: 100%;
+  }
+
+  .right-content {
+    width: 100%;
+    margin-left: 0;
+  }
+}
+
+.main-title {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.main-title img {
+  width: 2rem;
+}
+
+.main-title p {
+  font-size: 2rem;
+  margin: 0;
+  margin-left: 1rem;
+}
