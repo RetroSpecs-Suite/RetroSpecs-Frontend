@@ -138,23 +138,76 @@ const Query = ({ setAuthed }) => {
     setLoading(true);
     
     try {
-      await new Promise(resolve => setTimeout(resolve, 1000));
+      const response = await fetch('http://192.168.1.135:4000/response', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          query: query,
+          uid: auth.currentUser.uid
+        })
+      });
+  
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+  
+      const data = await response.json();
+
+      console.log('Search results:', data);
+
+      function decodeBase64Image(base64String) {
+        // Check if the base64 string is valid
+        if (!base64String || typeof base64String !== 'string') {
+          return null;
+        }
+
+        try {
+          // Remove data URL prefix if it exists
+          const base64Data = base64String.includes('data:image')
+            ? base64String
+            : `data:image/jpeg;base64,${base64String}`;
+
+          // Create a Blob from the base64 string
+          const byteCharacters = atob(base64Data.split(',')[1]);
+          const byteArrays = [];
+
+          for (let i = 0; i < byteCharacters.length; i++) {
+            byteArrays.push(byteCharacters.charCodeAt(i));
+          }
+
+          const byteArray = new Uint8Array(byteArrays);
+          const blob = new Blob([byteArray], { type: 'image/jpeg' });
+
+          // Create and return an object URL
+          return URL.createObjectURL(blob);
+        } catch (error) {
+          console.error('Error decoding base64 image:', error);
+          return null;
+        }
+      }
+      
+      const formattedResults = {
+        title: query,
+        id: data.timestamp,
+        content: data.content,
+        imageUrl: data.image ? decodeBase64Image(data.image) : null
+      };
+  
       setResults(prevResults => [
         ...(prevResults || []),
-        {
-          title: query,
-          id: Date.now(),
-          content: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat adipisci perspiciatis impedit error delectus, itaque ratione distinctio cupiditate quibusdam sapiente odio assumenda amet rem in necessitatibus corrupti sit dolorem! Laborum.",
-          imageUrl: "https://wallpapers.com/images/hd/1920-x-1080-hd-1qq8r4pnn8cmcew4.jpg"
-        }
+        formattedResults
       ]);
     } catch (error) {
       console.error('Search failed:', error);
+      // setError('Failed to fetch search results. Please try again.');
+
     } finally {
       setLoading(false);
-      setQuery('')
+      setQuery('');
     }
-  };
+};
 
   return (
     <div className="container">
