@@ -19,7 +19,7 @@
 .right-content {
   width: 50%;
   min-height: 100vh;
-  background-color: rgb(249, 250, 251);
+  background-color: white;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -37,6 +37,7 @@
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  padding-bottom: 0.4rem;
 }
 
 .left-side p {
