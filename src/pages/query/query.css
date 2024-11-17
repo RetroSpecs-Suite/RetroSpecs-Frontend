@@ -3,8 +3,9 @@
   justify-content: center;
   align-items: flex-start;
   flex-direction: column;
-  background-color: #f5f5f5;
+  background-color: whitesmoke;
   width: 100vw;
+  --glasses-blue: #addeff;
 }
 
 .content-wrapper {
@@ -37,6 +38,10 @@
   width: 100%;
 }
 
+/* .content h1 {
+  color: var(--glasses-blue);
+} */
+
 .content p {
   font-size: 1.2rem;
   color: #666;
@@ -65,6 +70,7 @@
 
 .search-input:focus {
   border-color: #007bff;
+  /* border-color: var(--glasses-blue); */
 }
 
 .search-button {
@@ -86,6 +92,10 @@
 
 .loading {
   margin: 2rem 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
 .spinner {

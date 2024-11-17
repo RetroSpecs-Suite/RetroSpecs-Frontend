@@ -21,7 +21,7 @@ const Login = ({setAuthed}) => {
           <img src="/logo.png" alt="RetroSpecs Logo" />
           <p>RetroSpecs</p>
         </div>
-        <h1>Recall On Your Day</h1>
+        <h1>Your Memories, Frame by Frame</h1>
         <p>AI that helps you remember your day, capture moments, and reflect on what matters.</p>
         <div className="login-content">
           <button className="google-sign-in" onClick={handleGoogleSignIn} aria-label="Sign in with Google">

@@ -30,21 +30,23 @@
 }
 
 .left-side h1 {
-  font-size: 4rem;
+  font-size: 2.75rem;
   font-weight: bold;
   margin: 0.5rem 1rem;
-  background: linear-gradient(135deg, #4f46e5, #2563eb);
+  background: linear-gradient(135deg, #007bff, #2563eb);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  padding-bottom: 0.4rem;
+  padding-bottom: 0.5rem;
 }
 
 .left-side p {
   color: #6b7280;
   font-size: 1.125rem;
   line-height: 1.5;
+  margin: 0 3rem;
   margin-bottom: 2rem;
+  text-align: center;
 }
 
 .google-sign-in {
