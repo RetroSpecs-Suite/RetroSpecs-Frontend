@@ -138,7 +138,7 @@ const Query = ({ setAuthed }) => {
     setLoading(true);
     
     try {
-      const response = await fetch('http://192.168.1.135:4000/response', {
+      const response = await fetch('http://172.20.10.3:4000/response', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
