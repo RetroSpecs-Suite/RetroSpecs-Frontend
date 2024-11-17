@@ -24,7 +24,7 @@ const App = () => {
   if (loading) {
     return (
       <div className="loading-page">
-        <div className="loading">
+        <div className="loading-thing">
           <div className="spinner" />
         </div>
       </div>
